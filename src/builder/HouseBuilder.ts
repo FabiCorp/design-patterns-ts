@@ -37,7 +37,7 @@ export class Director {
         this.builder = builder;
     }
 
-    constructHouseElement(type: HouseType): House {
+    constructHouse(type: HouseType): House {
         this.builder.buildWalls()
         this.builder.buildDoors();
         this.builder.buildRoof();

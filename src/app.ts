@@ -1,6 +1,5 @@
 import express from 'express';
-import { ConcreteFactoryA, ConcreteFactoryB } from "./factoryMethod/Factory";
-import { Product } from "./factoryMethod/Product";
+import { ConcreteFactoryA } from "./factoryMethod/Factory";
 
 const app = express();
 const port = 3000;
