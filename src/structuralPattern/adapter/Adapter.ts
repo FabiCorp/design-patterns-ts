@@ -12,7 +12,11 @@ class JSONAnalysationService {
 
 export class JSONAdapter implements ClientAnalyseService {
 
-    private jsonAnalysationService: JSONAnalysationService = new JSONAnalysationService();
+    private jsonAnalysationService: JSONAnalysationService;
+
+    constructor(jsonAnalysationService: JSONAnalysationService) {
+        this.jsonAnalysationService = jsonAnalysationService;
+    }
 
     private convertFromXMLtoJSON(XMLinput: String): String {
         return "JSONinput"
