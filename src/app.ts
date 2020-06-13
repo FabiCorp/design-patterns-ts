@@ -1,5 +1,5 @@
 import express from 'express';
-import { ConcreteFactoryA } from "./factoryMethod/Factory";
+import { ConcreteFactoryA } from "./creationalPattern/factoryMethod/Factory";
 
 const app = express();
 const port = 3000;
