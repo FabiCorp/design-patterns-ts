@@ -1,18 +1,12 @@
 
 interface BoxComponent {
     calculatePrice(): number;
-    getId(): string
+    getId(): string;
 }
 
 class Product implements BoxComponent {
 
-    private readonly id: string;
-    private price: number;
-
-    constructor(id: string, price: number) {
-        this.id = id;
-        this.price = price;
-    }
+    constructor(private readonly id: string, private price: number) { }
 
     public calculatePrice(): number {
         return this.price;
@@ -25,12 +19,9 @@ class Product implements BoxComponent {
 
 class Box implements BoxComponent {
 
-    private readonly id: string;
     private boxChilden: BoxComponent[] = [];
 
-    constructor(id: string) {
-        this.id = id;
-    }
+    constructor(private readonly id: string) { }
 
     public calculatePrice(): number {
         var price = 0;
