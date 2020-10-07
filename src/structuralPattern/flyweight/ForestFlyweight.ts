@@ -43,17 +43,10 @@ class TreeFactory {
 }
 
 class Tree {
-
     constructor(private x: number, private y: number, private type: TreeType) { }
-
-    public draw(canvas: any) {
-
-    }
-
+    public draw(canvas: any) { }
 }
 
 class TreeType {
-
     constructor(public readonly name: string, public readonly color: string, public readonly texture: any) { }
-
 }
