@@ -1,6 +1,6 @@
 import { Application, Editor } from './Application'
 
-abstract class Command {
+export abstract class Command {
     
     private backup: string = this.editor.text;
 
@@ -15,29 +15,54 @@ abstract class Command {
 
 export class CopyCommand extends Command {
 
-    public execute() { console.log('Copy stuff!'); }
+    constructor(protected application: Application, protected editor: Editor) {
+        super(application, editor);
+    }
+
+    public execute(): void { 
+        this.editor.getSelection();
+    }
 
 }
 
 export class CutCommand extends Command {
 
-    public execute() { console.log('Cut stuff!'); }
+    constructor(protected application: Application, protected editor: Editor) {
+        super(application, editor);
+    }
+
+    public execute(): void { 
+        this.editor.getSelection();
+        this.editor.deleteSelection();
+    }
 
 }
 
 export class PasteCommand extends Command {
 
-    public execute() { console.log('Paste stuff!'); }
+    constructor(protected application: Application, protected editor: Editor) {
+        super(application, editor);
+    }
+
+    public execute(): void { 
+        this.editor.replaceSelection("PASTE");
+    }
 
 }
 
 export class UndoCommand extends Command {
 
-    public execute() { console.log('Undo stuff!'); }
+    constructor(protected application: Application, protected editor: Editor) {
+        super(application, editor);
+    }
+
+    public execute(): void { 
+        this.application.
+    }
 
 }
 
-class CommandHistory {
+export class CommandHistory {
 
     private static commandHistory: CommandHistory;
 
@@ -48,14 +73,14 @@ class CommandHistory {
     public static getInstance(): CommandHistory {
         
         if (this.commandHistory === undefined) {
-            this.commandHistory = new CommandHistory()
+            this.commandHistory = new CommandHistory();
         }
         
         return this.commandHistory;
     }
 
-    public push(command: Command) { this.history.push(command) }
+    public push(command: Command) { this.history.push(command); }
 
-    public pop(): Command | undefined { return this.history.pop() }
+    public pop(): Command | undefined { return this.history.pop(); }
 
 }
