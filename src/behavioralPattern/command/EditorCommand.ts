@@ -57,7 +57,7 @@ export class UndoCommand extends Command {
     }
 
     public execute(): void { 
-        this.application.
+        this.application.undo();
     }
 
 }
